@@ -15,11 +15,17 @@ public class AppController {
 	@RequestMapping("/")
 	public String viewHomePage(Model model) {
 		List<Product> listProducts = service.listAll();
-		model.addAttribute("listProducts", listProducts);
-		
-		
+		model.addAttribute("listProducts", listProducts);		
 		
 		return "index";
 		
+	}
+	
+	@RequestMapping("/new")
+	public String showNewProductForm(Model model) {
+		Product product = new Product();
+		model.addAttribute("product", product);
+		
+		return "new_product";
 	}
 }
